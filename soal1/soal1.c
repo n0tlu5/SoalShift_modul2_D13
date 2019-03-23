@@ -63,6 +63,8 @@ int main() {
 		if (dp != NULL){
 		while (ep = readdir (dp))
 			if(ext_match(ep->d_name, ".png")){
+				unsigned char isFolder =0x4;
+				if(ep->d_type == isFolder) continue;
 				pid_t child_id;
 				int status;
 				char new[256];
